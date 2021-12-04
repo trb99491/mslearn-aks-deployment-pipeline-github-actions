@@ -55,7 +55,7 @@ jobs:
           # Resource group name
            resource-group: mslearn-gh-pipelines-25488
           # AKS cluster name
-           cluster-name: ContosoContainerRegistry14147   
+           cluster-name: contoso-video   
        - name: Run Helm Deploy
          run: |
           helm upgrade \
