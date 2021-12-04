@@ -56,3 +56,15 @@ jobs:
            resource-group: mslearn-gh-pipelines-25488
           # AKS cluster name
            cluster-name: ContosoContainerRegistry14147   
+       - name: Run Helm Deploy
+         run: |
+          helm upgrade \
+            --install \
+            --create-namespace \
+            --atomic \
+            --wait \
+            --namespace staging \
+            contoso-website \
+            ./kubernetes/contoso-website \
+            --set image.repository=${{ secrets.ACR_NAME }} \
+            --set dns.name=${{ secrets.DNS_NAME }}
